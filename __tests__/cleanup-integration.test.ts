@@ -20,11 +20,11 @@ integration('run', () => {
 integration('cleanupOldImageVersions', () => {
   const docker = new Docker()
   const imageOptions = {
-    filters: `{"reference":["ghcr.io/github/dependabot-update-job-proxy/dependabot-update-job-proxy"]}`
+    filters: `{"reference":["reg-ghcrio.artifactory-de.asml.com/github/dependabot-update-job-proxy/dependabot-update-job-proxy"]}`
   }
 
   const currentImage = PROXY_IMAGE_NAME
-  const oldImage = `ghcr.io/github/dependabot-update-job-proxy/dependabot-update-job-proxy:v2.0.20221204234507@sha256:c4d68b711d260099f5cfa06651910a613617d1c2b585361ac7139904e42a1f59`
+  const oldImage = `reg-ghcrio.artifactory-de.asml.com/github/dependabot-update-job-proxy/dependabot-update-job-proxy:v2.0.20221204234507@sha256:c4d68b711d260099f5cfa06651910a613617d1c2b585361ac7139904e42a1f59`
 
   async function clearTestImages(): Promise<void> {
     const testImages = await docker.listImages(imageOptions)

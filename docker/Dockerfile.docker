@@ -1,1 +1,1 @@
-FROM ghcr.io/dependabot/dependabot-updater-docker:v2.0.20230619205056@sha256:50636c07013faa796bef362565ff57c2a1f65e8c346d2119eb4c44aa8b2a919a
+FROM reg-ghcrio.artifactory-de.asml.com/dependabot/dependabot-updater-docker:v2.0.20230619205056@sha256:50636c07013faa796bef362565ff57c2a1f65e8c346d2119eb4c44aa8b2a919a

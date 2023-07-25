@@ -5,7 +5,7 @@ describe('ImageService', () => {
     test('it raises an error', async () => {
       await expect(ImageService.pull('hello-world')).rejects.toThrowError(
         new Error(
-          'Only images distributed via docker.pkg.github.com or ghcr.io can be fetched'
+          'Only images distributed via docker.pkg.github.com or reg-ghcrio.artifactory-de.asml.com can be fetched'
         )
       )
     })

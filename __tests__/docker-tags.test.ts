@@ -33,12 +33,12 @@ describe('Docker tags', () => {
   test('repositoryName returns the image name minus the tagged version and reference for our real values', () => {
     for (const image of updaterImages()) {
       expect(repositoryName(image)).toMatch(
-        /^ghcr.io\/dependabot\/dependabot-updater-[-\w]+$/
+        /^reg-ghcrio.artifactory-de.asml.com\/dependabot\/dependabot-updater-[-\w]+$/
       )
     }
 
     expect(repositoryName(PROXY_IMAGE_NAME)).toMatch(
-      'ghcr.io/github/dependabot-update-job-proxy/dependabot-update-job-proxy'
+      'reg-ghcrio.artifactory-de.asml.com/github/dependabot-update-job-proxy/dependabot-update-job-proxy'
     )
   })
 
@@ -54,10 +54,10 @@ describe('Docker tags', () => {
     ).toMatch('docker.pkg.github.com/dependabot/dependabot-updater')
   })
 
-  test('repositoryName handles ghcr.io images', () => {
+  test('repositoryName handles reg-ghcrio.artifactory-de.asml.com images', () => {
     expect(
-      repositoryName('ghcr.io/dependabot/dependabot-core:0.175.0')
-    ).toMatch('ghcr.io/dependabot/dependabot-core')
+      repositoryName('reg-ghcrio.artifactory-de.asml.com/dependabot/dependabot-core:0.175.0')
+    ).toMatch('reg-ghcrio.artifactory-de.asml.com/dependabot/dependabot-core')
   })
 
   test('repositoryName handles other images', () => {
@@ -106,31 +106,31 @@ describe('Docker tags', () => {
   test('digestName returns the image name and digest minus the tagged version or reference', () => {
     expect(
       digestName(
-        'ghcr.io/github/dependabot-update-job-proxy/dependabot-update-job-proxy:v2.0.20221206155623@sha256:1942aea0f57a3652d7694390dd4d8e6d08abca84b89383ee7ef9c6b57e00d247'
+        'reg-ghcrio.artifactory-de.asml.com/github/dependabot-update-job-proxy/dependabot-update-job-proxy:v2.0.20221206155623@sha256:1942aea0f57a3652d7694390dd4d8e6d08abca84b89383ee7ef9c6b57e00d247'
       )
     ).toMatch(
-      'ghcr.io/github/dependabot-update-job-proxy/dependabot-update-job-proxy@sha256:1942aea0f57a3652d7694390dd4d8e6d08abca84b89383ee7ef9c6b57e00d247'
+      'reg-ghcrio.artifactory-de.asml.com/github/dependabot-update-job-proxy/dependabot-update-job-proxy@sha256:1942aea0f57a3652d7694390dd4d8e6d08abca84b89383ee7ef9c6b57e00d247'
     )
 
     expect(
       digestName(
-        'ghcr.io/github/dependabot-update-job-proxy/dependabot-update-job-proxy@sha256:1942aea0f57a3652d7694390dd4d8e6d08abca84b89383ee7ef9c6b57e00d247'
+        'reg-ghcrio.artifactory-de.asml.com/github/dependabot-update-job-proxy/dependabot-update-job-proxy@sha256:1942aea0f57a3652d7694390dd4d8e6d08abca84b89383ee7ef9c6b57e00d247'
       )
     ).toMatch(
-      'ghcr.io/github/dependabot-update-job-proxy/dependabot-update-job-proxy@sha256:1942aea0f57a3652d7694390dd4d8e6d08abca84b89383ee7ef9c6b57e00d247'
+      'reg-ghcrio.artifactory-de.asml.com/github/dependabot-update-job-proxy/dependabot-update-job-proxy@sha256:1942aea0f57a3652d7694390dd4d8e6d08abca84b89383ee7ef9c6b57e00d247'
     )
   })
 
   test('hasDigest identifies when a digest is present', () => {
     expect(
       hasDigest(
-        'ghcr.io/github/dependabot-update-job-proxy/dependabot-update-job-proxy:v2.0.20221206155623@sha256:1942aea0f57a3652d7694390dd4d8e6d08abca84b89383ee7ef9c6b57e00d247'
+        'reg-ghcrio.artifactory-de.asml.com/github/dependabot-update-job-proxy/dependabot-update-job-proxy:v2.0.20221206155623@sha256:1942aea0f57a3652d7694390dd4d8e6d08abca84b89383ee7ef9c6b57e00d247'
       )
     ).toEqual(true)
 
     expect(
       hasDigest(
-        'ghcr.io/github/dependabot-update-job-proxy/dependabot-update-job-proxy:v1'
+        'reg-ghcrio.artifactory-de.asml.com/github/dependabot-update-job-proxy/dependabot-update-job-proxy:v1'
       )
     ).toEqual(false)
   })

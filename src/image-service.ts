@@ -20,12 +20,12 @@ export const ImageService = {
     */
     if (
       !(
-        imageName.startsWith('ghcr.io/') ||
+        imageName.startsWith('reg-ghcrio.artifactory-de.asml.com/') ||
         imageName.startsWith('docker.pkg.github.com/')
       )
     ) {
       throw new Error(
-        'Only images distributed via docker.pkg.github.com or ghcr.io can be fetched'
+        'Only images distributed via docker.pkg.github.com or reg-ghcrio.artifactory-de.asml.com can be fetched'
       )
     }
 

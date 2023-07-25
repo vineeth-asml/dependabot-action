@@ -56,6 +56,6 @@ updates:
 registries:
   ghcr:
     type: docker-registry
-    url: ghcr.io
+    url: reg-ghcrio.artifactory-de.asml.com
     username: x
     password: ${{ secrets.DEPENDABOT_GHPR_TOKEN }}

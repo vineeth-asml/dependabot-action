@@ -9,7 +9,8 @@ export function updaterImageName(packageManager: string): string {
   ]
 }
 
-const updaterRegex = /ghcr.io\/dependabot\/dependabot-updater-([\w+])/
+const updaterRegex =
+  /reg-ghcrio.artifactory-de.asml.com\/dependabot\/dependabot-updater-([\w+])/
 
 export function updaterImages(): string[] {
   return Object.values(dockerContainerConfig).filter(image =>
